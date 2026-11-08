@@ -1,0 +1,363 @@
+{
+  "fixture": {
+    "holdings": 58,
+    "history_sessions": 756,
+    "seed": 21258,
+    "data": "synthetic; no credentials/network/live holdings",
+    "as_of": "2026-11-07"
+  },
+  "token_estimator": "ceil(UTF-8 bytes / 4); approximation, not a tokenizer or billing count",
+  "transport": "FastMCP content text plus structuredContent; excludes JSON-RPC framing",
+  "tools": {
+    "get_account_summary": {
+      "input": {},
+      "input_schema_bytes": 72,
+      "output_schema_bytes": 1631,
+      "legacy_full": {
+        "payload_bytes": 316,
+        "estimated_payload_tokens": 79,
+        "mcp_bytes": 891,
+        "estimated_mcp_tokens": 223,
+        "pretty_payload_lines": 20
+      },
+      "full_call_latency_ms": 0.079
+    },
+    "get_positions": {
+      "input": {},
+      "input_schema_bytes": 66,
+      "output_schema_bytes": 2130,
+      "legacy_full": {
+        "payload_bytes": 26137,
+        "estimated_payload_tokens": 6535,
+        "mcp_bytes": 67635,
+        "estimated_mcp_tokens": 16909,
+        "pretty_payload_lines": 1224
+      },
+      "full_call_latency_ms": 0.273
+    },
+    "get_portfolio_allocation": {
+      "input": {},
+      "input_schema_bytes": 77,
+      "output_schema_bytes": 1373,
+      "legacy_full": {
+        "payload_bytes": 9711,
+        "estimated_payload_tokens": 2428,
+        "mcp_bytes": 26342,
+        "estimated_mcp_tokens": 6586,
+        "pretty_payload_lines": 589
+      },
+      "full_call_latency_ms": 0.21
+    },
+    "get_pending_orders": {
+      "input": {},
+      "input_schema_bytes": 71,
+      "output_schema_bytes": 2242,
+      "legacy_full": {
+        "payload_bytes": 3447,
+        "estimated_payload_tokens": 862,
+        "mcp_bytes": 9385,
+        "estimated_mcp_tokens": 2347,
+        "pretty_payload_lines": 206
+      },
+      "full_call_latency_ms": 0.094
+    },
+    "get_order_history": {
+      "input": {
+        "limit": 50
+      },
+      "input_schema_bytes": 390,
+      "output_schema_bytes": 4052,
+      "legacy_full": {
+        "payload_bytes": 37827,
+        "estimated_payload_tokens": 9457,
+        "mcp_bytes": 110770,
+        "estimated_mcp_tokens": 27693,
+        "pretty_payload_lines": 2457
+      },
+      "full_call_latency_ms": 0.892
+    },
+    "get_dividend_history": {
+      "input": {
+        "limit": 50
+      },
+      "input_schema_bytes": 393,
+      "output_schema_bytes": 1781,
+      "legacy_full": {
+        "payload_bytes": 16087,
+        "estimated_payload_tokens": 4022,
+        "mcp_bytes": 43040,
+        "estimated_mcp_tokens": 10760,
+        "pretty_payload_lines": 907
+      },
+      "full_call_latency_ms": 0.323
+    },
+    "get_transaction_history": {
+      "input": {
+        "limit": 50
+      },
+      "input_schema_bytes": 380,
+      "output_schema_bytes": 872,
+      "legacy_full": {
+        "payload_bytes": 5586,
+        "estimated_payload_tokens": 1397,
+        "mcp_bytes": 15138,
+        "estimated_mcp_tokens": 3785,
+        "pretty_payload_lines": 357
+      },
+      "full_call_latency_ms": 0.14
+    },
+    "get_market_data": {
+      "input": {
+        "tickers": [
+          "STK00",
+          "STK01",
+          "STK02",
+          "STK03",
+          "STK04",
+          "STK05",
+          "STK06",
+          "STK07",
+          "STK08",
+          "STK09",
+          "STK10",
+          "STK11",
+          "STK12",
+          "STK13",
+          "STK14",
+          "STK15",
+          "NEW0",
+          "NEW1",
+          "NEW2",
+          "SPY"
+        ]
+      },
+      "input_schema_bytes": 1363,
+      "output_schema_bytes": 81,
+      "legacy_full": {
+        "payload_bytes": 39891,
+        "estimated_payload_tokens": 9973,
+        "mcp_bytes": 99930,
+        "estimated_mcp_tokens": 24983,
+        "pretty_payload_lines": 1560
+      },
+      "full_call_latency_ms": 52.22,
+      "fresh_summary_call_latency_ms": 9.353,
+      "summary": {
+        "payload_bytes": 33520,
+        "estimated_payload_tokens": 8380,
+        "mcp_bytes": 86982,
+        "estimated_mcp_tokens": 21746,
+        "pretty_payload_lines": 1550
+      },
+      "cached_summary_call_median_ms": 0.486,
+      "cached_full_call_median_ms": 0.208,
+      "cached_summary_with_size_serialization_median_ms": 1.039,
+      "cached_full_with_size_serialization_median_ms": 0.798,
+      "detailed": {
+        "payload_bytes": 43980,
+        "estimated_payload_tokens": 10995,
+        "mcp_bytes": 112645,
+        "estimated_mcp_tokens": 28162,
+        "pretty_payload_lines": 1921
+      },
+      "cached_full": {
+        "payload_bytes": 39891,
+        "estimated_payload_tokens": 9973,
+        "mcp_bytes": 99930,
+        "estimated_mcp_tokens": 24983,
+        "pretty_payload_lines": 1560
+      },
+      "summary_mcp_reduction_percent": 12.96
+    },
+    "analyse_portfolio_risk": {
+      "input": {},
+      "input_schema_bytes": 1737,
+      "output_schema_bytes": 88,
+      "legacy_full": {
+        "payload_bytes": 233948,
+        "estimated_payload_tokens": 58487,
+        "mcp_bytes": 560137,
+        "estimated_mcp_tokens": 140035,
+        "pretty_payload_lines": 8382
+      },
+      "full_call_latency_ms": 142.93,
+      "fresh_summary_call_latency_ms": 99.71,
+      "summary": {
+        "payload_bytes": 11602,
+        "estimated_payload_tokens": 2901,
+        "mcp_bytes": 31729,
+        "estimated_mcp_tokens": 7933,
+        "pretty_payload_lines": 670
+      },
+      "cached_summary_call_median_ms": 2.03,
+      "cached_full_call_median_ms": 1.112,
+      "cached_summary_with_size_serialization_median_ms": 2.238,
+      "cached_full_with_size_serialization_median_ms": 7.083,
+      "detailed": {
+        "payload_bytes": 35720,
+        "estimated_payload_tokens": 8930,
+        "mcp_bytes": 91817,
+        "estimated_mcp_tokens": 22955,
+        "pretty_payload_lines": 1659
+      },
+      "cached_full": {
+        "payload_bytes": 233948,
+        "estimated_payload_tokens": 58487,
+        "mcp_bytes": 560137,
+        "estimated_mcp_tokens": 140035,
+        "pretty_payload_lines": 8382
+      },
+      "summary_mcp_reduction_percent": 94.34,
+      "single_holding_drill_down": {
+        "payload_bytes": 9449,
+        "estimated_payload_tokens": 2363,
+        "mcp_bytes": 25885,
+        "estimated_mcp_tokens": 6472,
+        "pretty_payload_lines": 542
+      }
+    },
+    "screen_stocks": {
+      "input": {
+        "limit": 20
+      },
+      "input_schema_bytes": 3082,
+      "output_schema_bytes": 79,
+      "legacy_full": {
+        "payload_bytes": 43062,
+        "estimated_payload_tokens": 10766,
+        "mcp_bytes": 105499,
+        "estimated_mcp_tokens": 26375,
+        "pretty_payload_lines": 1549
+      },
+      "full_call_latency_ms": 315.02,
+      "fresh_summary_call_latency_ms": 225.86,
+      "summary": {
+        "payload_bytes": 33378,
+        "estimated_payload_tokens": 8345,
+        "mcp_bytes": 85329,
+        "estimated_mcp_tokens": 21333,
+        "pretty_payload_lines": 1493
+      },
+      "cached_summary_call_median_ms": 0.48,
+      "cached_full_call_median_ms": 0.222,
+      "cached_summary_with_size_serialization_median_ms": 1.076,
+      "cached_full_with_size_serialization_median_ms": 0.917,
+      "detailed": {
+        "payload_bytes": 47803,
+        "estimated_payload_tokens": 11951,
+        "mcp_bytes": 119707,
+        "estimated_mcp_tokens": 29927,
+        "pretty_payload_lines": 1927
+      },
+      "cached_full": {
+        "payload_bytes": 43062,
+        "estimated_payload_tokens": 10766,
+        "mcp_bytes": 105499,
+        "estimated_mcp_tokens": 26375,
+        "pretty_payload_lines": 1549
+      },
+      "summary_mcp_reduction_percent": 19.12
+    },
+    "analyse_candidate_investment": {
+      "input": {
+        "tickers": [
+          "NEW0",
+          "NEW1",
+          "NEW2"
+        ],
+        "investment_amount_gbp": 2000,
+        "compare_cash": true,
+        "allocations": {
+          "NEW0": 0.5,
+          "NEW1": 0.5
+        }
+      },
+      "input_schema_bytes": 2316,
+      "output_schema_bytes": 94,
+      "legacy_full": {
+        "payload_bytes": 71390,
+        "estimated_payload_tokens": 17848,
+        "mcp_bytes": 170614,
+        "estimated_mcp_tokens": 42654,
+        "pretty_payload_lines": 2182
+      },
+      "full_call_latency_ms": 145.189,
+      "fresh_summary_call_latency_ms": 184.883,
+      "summary": {
+        "payload_bytes": 30380,
+        "estimated_payload_tokens": 7595,
+        "mcp_bytes": 78154,
+        "estimated_mcp_tokens": 19539,
+        "pretty_payload_lines": 1356
+      },
+      "cached_summary_call_median_ms": 1.312,
+      "cached_full_call_median_ms": 0.317,
+      "cached_summary_with_size_serialization_median_ms": 1.892,
+      "cached_full_with_size_serialization_median_ms": 1.516,
+      "detailed": {
+        "payload_bytes": 62783,
+        "estimated_payload_tokens": 15696,
+        "mcp_bytes": 157846,
+        "estimated_mcp_tokens": 39462,
+        "pretty_payload_lines": 2470
+      },
+      "cached_full": {
+        "payload_bytes": 71390,
+        "estimated_payload_tokens": 17848,
+        "mcp_bytes": 170614,
+        "estimated_mcp_tokens": 42654,
+        "pretty_payload_lines": 2182
+      },
+      "summary_mcp_reduction_percent": 54.19
+    },
+    "optimise_new_contribution": {
+      "input": {
+        "tickers": [
+          "NEW0",
+          "NEW1",
+          "NEW2"
+        ],
+        "investment_amount_gbp": 2000,
+        "allow_cash": true,
+        "max_cash_allocation": 0.25
+      },
+      "input_schema_bytes": 2952,
+      "output_schema_bytes": 91,
+      "legacy_full": {
+        "payload_bytes": 146913,
+        "estimated_payload_tokens": 36729,
+        "mcp_bytes": 379597,
+        "estimated_mcp_tokens": 94900,
+        "pretty_payload_lines": 5753
+      },
+      "full_call_latency_ms": 980.708,
+      "fresh_summary_call_latency_ms": 169.016,
+      "summary": {
+        "payload_bytes": 24440,
+        "estimated_payload_tokens": 6110,
+        "mcp_bytes": 61715,
+        "estimated_mcp_tokens": 15429,
+        "pretty_payload_lines": 1017
+      },
+      "cached_summary_call_median_ms": 0.808,
+      "cached_full_call_median_ms": 0.687,
+      "cached_summary_with_size_serialization_median_ms": 1.317,
+      "cached_full_with_size_serialization_median_ms": 3.892,
+      "detailed": {
+        "payload_bytes": 146919,
+        "estimated_payload_tokens": 36730,
+        "mcp_bytes": 379843,
+        "estimated_mcp_tokens": 94961,
+        "pretty_payload_lines": 5779
+      },
+      "cached_full": {
+        "payload_bytes": 146913,
+        "estimated_payload_tokens": 36729,
+        "mcp_bytes": 379597,
+        "estimated_mcp_tokens": 94900,
+        "pretty_payload_lines": 5753
+      },
+      "summary_mcp_reduction_percent": 83.74
+    }
+  }
+}

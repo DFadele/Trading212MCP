@@ -1,0 +1,59 @@
+name: checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.11", "3.12", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.5"
+          python-version: ${{ matrix.python }}
+          enable-cache: true
+      - run: uv sync --locked
+      - run: uv run --locked ruff check src tests scripts
+      - run: uv run --locked ruff format --check src tests scripts
+      - if: matrix.python == '3.14'
+        run: uv run --locked pyright
+      - run: uv run --locked pytest -q
+      - run: uv run --locked python scripts/check_deployment.py
+      - run: uv run --locked python scripts/smoke_http.py
+      - run: uv build --out-dir dist
+      - run: uv run --locked python scripts/check_deployment.py --dist dist
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          load: true
+          tags: trading212-mcp:ci
+          push: false
+      - name: Fail-closed container startup
+        run: |
+          if docker run --rm trading212-mcp:ci; then
+            echo 'Container accepted missing authentication/credentials'
+            exit 1
+          fi
+      - name: Local container HTTP smoke check (isolated loopback only)
+        run: |
+          docker run -d --name mcp-local --network none \
+            -e MCP_HOST=127.0.0.1 -e MCP_AUTH_MODE=local \
+            -e TRADING212_API_KEY=fixture -e TRADING212_API_SECRET=fixture \
+            trading212-mcp:ci
+          docker exec mcp-local python -c "import time,urllib.request; time.sleep(3); assert urllib.request.urlopen('http://127.0.0.1:8000/readyz').status==200"
+          docker stop --time 40 mcp-local
+          code="$(docker inspect -f '{{.State.ExitCode}}' mcp-local)"
+          test "$code" = 0 || test "$code" = 143
+          docker logs mcp-local 2>&1 | grep '"event":"runtime_stopped"'

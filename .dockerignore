@@ -1,0 +1,21 @@
+# Only code and locked build inputs enter the build context.
+**
+!pyproject.toml
+!uv.lock
+!README.md
+!src/
+!src/**
+**/__pycache__/
+**/*.pyc
+.env
+.env.*
+.git/
+.cache/
+.venv/
+*.pem
+*.key
+
+**/.env*
+**/*.pem
+**/*.key
+**/*.sqlite3

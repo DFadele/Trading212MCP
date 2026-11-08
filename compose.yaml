@@ -1,0 +1,24 @@
+services:
+  mcp:
+    build: .
+    # HTTP authentication is required even though the published port is loopback.
+    env_file: .env.http
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      MCP_TRANSPORT: streamable-http
+      MCP_AUTH_MODE: oauth
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: "8000"
+    volumes:
+      - identifiers:/data
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=256m,uid=10001,gid=10001
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    init: true
+    stop_grace_period: 45s
+    restart: unless-stopped
+volumes:
+  identifiers:
