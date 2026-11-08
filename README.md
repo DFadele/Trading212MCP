@@ -1,4 +1,4 @@
-# Trading212MCP
+# (Unofficial) Trading212MCP
 
 A single-user Python MCP server for read-only Trading 212 portfolio access and deterministic investment research. It supports local **stdio** and **OAuth-protected Streamable HTTP** at `/mcp`.
 
